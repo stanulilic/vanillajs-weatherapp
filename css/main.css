@@ -62,3 +62,12 @@ input {
     border: 0;
     background: #4a9a8f;
 }
+
+@media screen and (min-width: 500px) {
+    .header .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    }
+}
