@@ -1,0 +1,64 @@
+html {
+    font-size: 16px;
+}
+body {
+    color: #fff;
+    font-size: 1rem;
+    background: #32ccbc;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+    fill: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+input {
+    border: none;
+}
+
+/* ===========================================================================
+    HEADER
+   ===========================================================================
+*/
+
+.header .row {
+    text-align: center;
+}
+
+.header__search, .header__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__geolocate {
+    margin-right: .8rem;
+}
+.header__form input {
+    padding: 0.575rem 0.75rem;
+    color: #495057;
+    width: 100%;
+}
+
+.header__form button {
+    padding: 0.375rem 0.75rem;
+    border: 0;
+    background: #4a9a8f;
+}
