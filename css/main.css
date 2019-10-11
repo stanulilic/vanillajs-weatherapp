@@ -11,6 +11,7 @@ body {
 ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .row {
@@ -56,7 +57,7 @@ input {
     padding: 0.575rem 0.75rem;
     color: #495057;
     width: 100%;
-    border-radius: 7px;
+    /* border-radius: 7px; */
 }
 
 .header__form button {
@@ -72,4 +73,52 @@ input {
     justify-content: space-between;
     align-items: center;
     }
+}
+
+/* ===========================================================================
+    Weather
+   ===========================================================================
+*/
+
+.weather {
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.weather .location {
+    color: #30655d;
+}
+
+.weather__summary {
+    margin-top: 3rem;
+}
+
+.weather__summary .weather-icon {
+    font-size: 3rem;
+    margin-right: 1.4rem;
+}
+
+.weather__celsius-value {
+    font-size: 5rem;
+}
+.weather__celsius-value  .wi-celsius {
+    font-size: 8rem;
+    vertical-align: middle;
+}
+
+.weather__miscellaneous{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+
+.weather__miscellaneous li:first-child {
+    margin-right: 2rem;
+}
+
+.weather__miscellaneous span {
+    color: #132522;
+    margin-left: 1rem;
 }
