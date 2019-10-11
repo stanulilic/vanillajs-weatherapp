@@ -5,6 +5,7 @@ body {
     color: #fff;
     font-size: 1rem;
     background: #32ccbc;
+    font-family: "roboto", Arial, Helvetica, sans-serif;
 }
 
 ul {
@@ -55,6 +56,7 @@ input {
     padding: 0.575rem 0.75rem;
     color: #495057;
     width: 100%;
+    border-radius: 7px;
 }
 
 .header__form button {
