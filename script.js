@@ -1,10 +1,14 @@
 const weather = document.querySelector('.weather');
-const url = 'http://api.openweathermap.org/data/2.5/weather?q=zomba&APPID=35b1f1d45a7b4378cf2430ae601816be&units=metric';
+const searchBtn = document.querySelector('button[role="search"]');
+const cityField = document.querySelector('input[type="search"]');
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    const markup = `<h1 class="location">${data.name}, ${data.sys.country}</h1>
+function getCityWeather(city) {
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=35b1f1d45a7b4378cf2430ae601816be&units=metric`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const markup = `<h1 class="location">${data.name}, ${data.sys.country}</h1>
  <div class="weather__summary">
     <p><i class="wi wi-cloud weather-icon"></i> <span class="weather__celsius-value">${data.main.temp}°C</span></p>
     <p>${data.weather[0].main}</p>
@@ -14,8 +18,17 @@ fetch(url)
     </ul>
  </div>
  `;
-    weather.insertAdjacentHTML('beforeend', markup);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+      while (weather.firstChild) {
+        weather.removeChild(weather.firstChild);
+      }
+      weather.insertAdjacentHTML('beforeend', markup);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+searchBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  getCityWeather(cityField.value);
+});
