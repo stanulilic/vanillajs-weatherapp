@@ -18,6 +18,9 @@ function getWeekDay(date) {
 }
 
 function renderForecast(forecast) {
+  while (forecastRow.firstChild) {
+    forecastRow.removeChild(forecastRow.firstChild);
+  }
   forecast.forEach((weatherData) => {
     const markup = `<div class="forecast__day">
      <h3 class="forecast__date">${getWeekDay(new Date(weatherData.dt * 1000))}</h3>
