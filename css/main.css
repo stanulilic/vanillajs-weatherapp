@@ -85,6 +85,12 @@ input {
     text-align: center;
 }
 
+.weather__message {
+    padding-top: 7rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
 .weather .location {
     color: #30655d;
 }
