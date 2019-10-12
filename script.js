@@ -12,12 +12,17 @@ function printTodayDate() {
   dateElement.insertAdjacentText('afterbegin', today.toLocaleString('en-us', options));
 }
 
+function getWeekDay(date) {
+  const options = { weekday: 'long' };
+  return date.toLocaleString('en-us', options);
+}
+
 function renderForecast(forecast) {
   forecast.forEach((weatherData) => {
     const markup = `<div class="forecast__day">
-     <h3 class="forecast__date">Friday</h3>
+     <h3 class="forecast__date">${getWeekDay(new Date(weatherData.dt * 1000))}</h3>
      <i class="wi wi-cloud forecast__icon"></i>
-     <p class="forecast__temp">${weatherData.main.temp}°C</p>
+     <p class="forecast__temp">${Math.floor(weatherData.main.temp)}°C</p>
      <p class="forecast__desc">${weatherData.weather[0].main}</p>
    </div>`;
     forecastRow.insertAdjacentHTML('beforeend', markup);
@@ -41,7 +46,7 @@ function getCityWeather(city) {
     .then((data) => {
       const markup = `<h1 class="location">${data.name}, ${data.sys.country}</h1>
  <div class="weather__summary">
-    <p><i class="wi wi-cloud weather-icon"></i> <span class="weather__celsius-value">${data.main.temp}°C</span></p>
+    <p><i class="wi wi-cloud weather-icon"></i> <span class="weather__celsius-value">${Math.floor(data.main.temp)}°C</span></p>
     <p>${data.weather[0].main}</p>
     <ul class="weather__miscellaneous">
     <li><i class="wi wi-humidity"></i> Humidity  <span>${data.main.humidity}%</span></li>
