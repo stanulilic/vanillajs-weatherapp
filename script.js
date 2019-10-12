@@ -17,10 +17,14 @@ function getWeekDay(date) {
   return date.toLocaleString('en-us', options);
 }
 
-function renderForecast(forecast) {
-  while (forecastRow.firstChild) {
-    forecastRow.removeChild(forecastRow.firstChild);
+function removeChildren(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
   }
+}
+
+function renderForecast(forecast) {
+  removeChildren(forecastRow);
   forecast.forEach((weatherData) => {
     const markup = `<div class="forecast__day">
      <h3 class="forecast__date">${getWeekDay(new Date(weatherData.dt * 1000))}</h3>
@@ -57,9 +61,7 @@ function getCityWeather(city) {
     </ul>
  </div>
  `;
-      while (weather.firstChild) {
-        weather.removeChild(weather.firstChild);
-      }
+      removeChildren(weather);
       weather.insertAdjacentHTML('beforeend', markup);
     })
     .catch((error) => {
