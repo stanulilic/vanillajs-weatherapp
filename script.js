@@ -4,6 +4,26 @@ const cityField = document.querySelector('input[type="search"]');
 const forecastRow = document.querySelector('.forecast > .row');
 const dateElement = document.querySelector('.header__date');
 
+const icons = {
+'01d': 'wi-day-sunny', 
+'02d':  'wi-day-cloudy',
+'03d':  'wi-cloud',
+'04d':  'wi-cloudy',
+'09d':  'wi-showers',
+'10d':   'wi-rain',
+'11d':  'wi-thunderstorm',
+'13d':  'wi-snow',
+'50d':   'wi-fog',
+'01n':  'wi-night-clear',
+'02n':  'wi-night-alt-cloudy',
+'03n':  'wi-cloud',
+'04n':  'wi-night-cloudy',
+'09n':  'wi-night-showers',
+'10n':  'wi-night-rain',
+'11n':  'wi-night-thunderstorm',
+'13n':  'wi-night-alt-snow',
+'50n':  'wi-night-fog',
+}
 function printTodayDate() {
   const today = new Date();
   const options = {
@@ -28,7 +48,7 @@ function renderForecast(forecast) {
   forecast.forEach((weatherData) => {
     const markup = `<div class="forecast__day">
      <h3 class="forecast__date">${getWeekDay(new Date(weatherData.dt * 1000))}</h3>
-     <i class="wi wi-cloud forecast__icon"></i>
+     <i class='wi ${icons[weatherData.weather[0].icon]} forecast__icon'></i>
      <p class="forecast__temp">${Math.floor(weatherData.main.temp)}°C</p>
      <p class="forecast__desc">${weatherData.weather[0].main}</p>
    </div>`;
@@ -53,7 +73,7 @@ function getCityWeather(city) {
     .then((data) => {
       const markup = `<h1 class="location">${data.name}, ${data.sys.country}</h1>
  <div class="weather__summary">
-    <p><i class="wi wi-cloud weather-icon"></i> <span class="weather__celsius-value">${Math.floor(data.main.temp)}°C</span></p>
+    <p><i class="wi ${icons[data.weather[0].icon]} weather-icon"></i> <span class="weather__celsius-value">${Math.floor(data.main.temp)}°C</span></p>
     <p>${data.weather[0].main}</p>
     <ul class="weather__miscellaneous">
     <li><i class="wi wi-humidity"></i> Humidity  <span>${data.main.humidity}%</span></li>
