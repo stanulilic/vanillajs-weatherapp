@@ -122,3 +122,37 @@ input {
     color: #132522;
     margin-left: 1rem;
 }
+
+
+/* ===========================================================================
+    Forecast
+   ===========================================================================
+*/
+
+.forecast {
+    margin-top: 5rem;
+}
+.forecast .row {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.forecast__day {
+    background: #4a9a8f;
+    text-align: center;
+    /* padding: 1rem 5rem; */
+    margin-bottom: .8rem;
+    flex-basis: 1 1 30%;
+}
+
+.forecast__date {
+    font-size: 1.3rem;
+}
+.forecast__icon {
+    font-size: 3.7rem;
+}
+
+.forecast__temp {
+    font-size: 1.8rem;
+}
+

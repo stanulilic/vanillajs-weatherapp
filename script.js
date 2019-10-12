@@ -1,10 +1,17 @@
 const weather = document.querySelector('.weather');
 const searchBtn = document.querySelector('button[role="search"]');
 const cityField = document.querySelector('input[type="search"]');
+const forecastRow = document.querySelector('.forecast > .row');
 
 function renderForecast(forecast) {
   forecast.forEach((weatherData) =>{
-    console.log(weatherData);
+   const markup = `<div class="forecast__day">
+     <h3 class="forecast__date">Friday</h3>
+     <i class="wi wi-cloud forecast__icon"></i>
+     <p class="forecast__temp">${weatherData.main.temp}°C</p>
+     <p class="forecast__desc">${weatherData.weather[0].main}</p>
+   </div>`
+      forecastRow.insertAdjacentHTML('beforeend', markup);
   });
 }
 
@@ -37,6 +44,7 @@ function getCityWeather(city) {
         weather.removeChild(weather.firstChild);
       }
       weather.insertAdjacentHTML('beforeend', markup);
+
     })
     .catch((error) => {
       console.log(error);
@@ -46,4 +54,5 @@ function getCityWeather(city) {
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
   getCityWeather(cityField.value);
+  getForecast(cityField.value);
 });
